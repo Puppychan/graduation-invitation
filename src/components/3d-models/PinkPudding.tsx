@@ -7,8 +7,9 @@ Title: pink pudding
 */
 import { useGLTF } from "@react-three/drei";
 import { Mesh } from "three";
+import { GeneralGroupProps } from "../../utils/types";
 
-export function PinkPudding(props) {
+export function PinkPudding(props: GeneralGroupProps) {
   const { nodes, materials } = useGLTF("/models/pink_pudding.glb");
   return (
     <group {...props} dispose={null}>

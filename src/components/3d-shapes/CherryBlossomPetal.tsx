@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { MathUtils, Mesh } from "three";
 
 interface CherryBlossomPetalProps {
@@ -46,30 +46,29 @@ export function CherryBlossomPetal({
 
 // Generate multiple petals
 export default function CherryBlossomPetals({ count = 30 }) {
-  const petals = Array.from({ length: count }, (_, i) => ({
-    position: [
-      MathUtils.randFloat(-10, 10),
-      MathUtils.randFloat(-5, 10),
-      MathUtils.randFloat(-5, 5),
-    ],
-    rotation: [
-      MathUtils.randFloat(0, Math.PI * 2),
-      MathUtils.randFloat(0, Math.PI * 2),
-      MathUtils.randFloat(0, Math.PI * 2),
-    ],
-    scale: MathUtils.randFloat(0.5, 1.5),
-  }));
+  const petals = useMemo(() => {
+    const petalsList = Array.from({ length: count }, () => ({
+      position: [
+        MathUtils.randFloat(-10, 10),
+        MathUtils.randFloat(-5, 10),
+        MathUtils.randFloat(-5, 5),
+      ],
+      rotation: [
+        MathUtils.randFloat(0, Math.PI * 2),
+        MathUtils.randFloat(0, Math.PI * 2),
+        MathUtils.randFloat(0, Math.PI * 2),
+      ],
+      scale: MathUtils.randFloat(0.5, 1.5),
+    }));
+    return petalsList.map((petal, i) => (
+      <CherryBlossomPetal
+        key={i}
+        position={petal.position as [number, number, number]}
+        rotation={petal.rotation as [number, number, number]}
+        scale={petal.scale}
+      />
+    ));
+  }, [count]);
 
-  return (
-    <group>
-      {petals.map((petal, i) => (
-        <CherryBlossomPetal
-          key={i}
-          position={petal.position as [number, number, number]}
-          rotation={petal.rotation as [number, number, number]}
-          scale={petal.scale}
-        />
-      ))}
-    </group>
-  );
+  return <group>{petals}</group>;
 }

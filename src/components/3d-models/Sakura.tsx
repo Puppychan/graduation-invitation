@@ -7,8 +7,9 @@ Title: sakura
 */
 import { useGLTF } from "@react-three/drei";
 import { Mesh } from "three";
+import { GeneralGroupProps } from "../../utils/types";
 
-export function Sakura(props) {
+export function Sakura(props: GeneralGroupProps) {
   const { nodes, materials } = useGLTF("/models/sakura.glb");
   return (
     <group {...props} dispose={null}>

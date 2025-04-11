@@ -8,8 +8,9 @@ Title: Beech tree
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
+import { GeneralGroupProps } from '../../utils/types'
 
-export function Tree(props) {
+export function Tree(props: GeneralGroupProps) {
   const { nodes, materials } = useGLTF('/models/beech_tree.glb')
   return (
     <group {...props} dispose={null}>

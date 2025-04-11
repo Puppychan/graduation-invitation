@@ -9,6 +9,7 @@ interface GumTextProps {
   size?: number;
   text: string;
   rotation?: [number, number, number];
+  color?: string;
 }
 
 export default function GumText({
@@ -16,24 +17,29 @@ export default function GumText({
   text,
   rotation = [0, 0, 0],
   size = 3,
+  color = "mistyrose",
 }: GumTextProps) {
   const [matcapTexture] = useMatcapTexture("CB5E3B_FABC7A_EF965E_F4A46C");
   const ref = useRef<Mesh>(null);
 
   const isSmall = useMediaQuery({ maxWidth: SCREEN_SIZES.SMALL });
+  const isMobile = useMediaQuery({ minWidth: SCREEN_SIZES.SMALL, maxWidth: SCREEN_SIZES.MOBILE });
   const isTablet = useMediaQuery({
-    minWidth: SCREEN_SIZES.SMALL,
+    minWidth: SCREEN_SIZES.MOBILE,
     maxWidth: SCREEN_SIZES.TABLET,
   });
 
   const responsiveSize = useMemo(() => {
     if (isSmall) {
-      return size * 0.7;
+      return size * 0.3;
+    }
+    else if (isMobile) {
+      return size * 0.5;
     } else if (isTablet) {
-      return size * 0.9;
+      return size * 0.7;
     }
     return size;
-  }, [isSmall, isTablet, size]);
+  }, [isMobile, isSmall, isTablet, size]);
 
   return (
     <Center position={position} rotation={rotation}>
@@ -55,7 +61,7 @@ export default function GumText({
           letterSpacing={0.3}
         >
           {text}
-          <meshMatcapMaterial color="pink" matcap={matcapTexture} />
+          <meshMatcapMaterial color={color} matcap={matcapTexture} />
         </Text3D>
       </Float>
       {/* </Physics> */}

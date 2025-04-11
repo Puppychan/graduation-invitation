@@ -1,25 +1,14 @@
-import { Physics } from "@react-three/cannon";
 import {
   CameraControls,
-  Cloud,
-  Clouds,
-  OrbitControls,
   PerspectiveCamera,
-  Sparkles,
-  Text,
 } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useThree } from "@react-three/fiber";
+import { useCallback, useEffect, useRef } from "react";
 import * as THREE from "three";
-import GumText from "./3d-shapes/GumText";
-import CherryBlossomPetals from "./3d-shapes/CherryBlossomPetal";
-import CandyCluster from "./3d-shapes/Candy";
-import CottonCandy from "./3d-shapes/CottonCandy";
-import GraduationCard from "./GraduationCard";
 import WelcomeSection from "../sections/WelcomeSection";
 import SubtitleSection from "../sections/SubtitleSection";
-import SchoolCard from "./SchoolCard";
 import SchoolSection from "../sections/SchoolSection";
+import InvitationSection from "../sections/InvitationSection";
 
 interface CameraControlsProps {
   setCurrentSection: (section: number) => void;
@@ -184,9 +173,9 @@ const sectionPositions = [
 // Camera offsets for better viewing angles
 const sectionOffsets = [
   new THREE.Vector3(0, 20, 40), // Section 0 (closest to viewer)
-  new THREE.Vector3(0, 22, 45), // Section 1
-  new THREE.Vector3(0, 24, 50), // Section 2
-  new THREE.Vector3(0, 26, 55), // Section 3 (farthest away)
+  new THREE.Vector3(0, 10, 45), // Section 1
+  new THREE.Vector3(7, -13, 35), // Section 2
+  new THREE.Vector3(-15, 0, 20), // Section 3 (farthest away)
 ];
 interface SceneProps {
   setCurrentSection: (section: number) => void;
@@ -197,17 +186,18 @@ export default function Scene({
   setCurrentSection,
   currentSection,
 }: SceneProps) {
+  // console.log("Rendering Scene", sectionOffsets[0], sectionOffsets[0].z, sectionOffsets[0].z + sectionOffsets[0].z);
   return (
     <>
       <CustomCameraControls
         setCurrentSection={setCurrentSection}
         currentSection={currentSection}
       />
-      {/* <PerspectiveCamera makeDefault position={[0, 0, 10]} /> */}
+      <PerspectiveCamera makeDefault fov={30} position={[0, 0, sectionPositions[0].z + sectionOffsets[0].z ]} />
 
       {/* Welcome Section (visible from far) */}
       <WelcomeSection
-        position={sectionPositions[2].toArray() as [number, number, number]}
+        position={sectionPositions[0].toArray() as [number, number, number]}
       />
       <SubtitleSection
         position={sectionPositions[1].toArray() as [number, number, number]}
@@ -215,110 +205,12 @@ export default function Scene({
 
       {/* Graduation Invitation (visible when zooming in more) */}
       <SchoolSection
-        position={sectionPositions[0].toArray() as [number, number, number]}
+        position={sectionPositions[2].toArray() as [number, number, number]}
       />
 
-      {/* Secret Section (only visible when zoomed in deep) */}
-      <GraduationCard
+      <InvitationSection
         position={sectionPositions[3].toArray() as [number, number, number]}
       />
     </>
-  );
-}
-
-// Confetti particles for the secret section
-function ConfettiParticles() {
-  const particles = useRef<
-    Array<{
-      position: THREE.Vector3;
-      rotation: THREE.Euler;
-      scale: number;
-      velocity: THREE.Vector3;
-      rotationSpeed: THREE.Vector3;
-      color: string;
-    }>
-  >([]);
-  const group = useRef<THREE.Group>(null);
-
-  // Create confetti particles on first render
-  useEffect(() => {
-    // Create 50 confetti particles
-    for (let i = 0; i < 50; i++) {
-      particles.current.push({
-        position: new THREE.Vector3(
-          (Math.random() - 0.5) * 10,
-          (Math.random() - 0.5) * 10,
-          (Math.random() - 0.5) * 10
-        ),
-        rotation: new THREE.Euler(
-          Math.random() * Math.PI,
-          Math.random() * Math.PI,
-          Math.random() * Math.PI
-        ),
-        scale: Math.random() * 0.3 + 0.1,
-        velocity: new THREE.Vector3(
-          (Math.random() - 0.5) * 0.02,
-          (Math.random() - 0.5) * 0.02,
-          (Math.random() - 0.5) * 0.02
-        ),
-        rotationSpeed: new THREE.Vector3(
-          Math.random() * 0.04,
-          Math.random() * 0.04,
-          Math.random() * 0.04
-        ),
-        color: [
-          "#ff6347",
-          "#4169e1",
-          "#32cd32",
-          "#ffd700",
-          "#9932cc",
-          "#ff69b4",
-          "#00ced1",
-          "#ff7f50",
-        ][Math.floor(Math.random() * 8)],
-      });
-    }
-  }, []);
-
-  // Animate confetti
-  useFrame(() => {
-    particles.current.forEach((particle, i) => {
-      if (group.current && group.current.children[i]) {
-        const mesh = group.current.children[i];
-
-        // Update position
-        mesh.position.add(particle.velocity);
-
-        // Update rotation
-        mesh.rotation.x += particle.rotationSpeed.x;
-        mesh.rotation.y += particle.rotationSpeed.y;
-        mesh.rotation.z += particle.rotationSpeed.z;
-
-        // Reset if too far away
-        if (mesh.position.length() > 10) {
-          mesh.position.set(
-            (Math.random() - 0.5) * 2,
-            (Math.random() - 0.5) * 2,
-            (Math.random() - 0.5) * 2
-          );
-        }
-      }
-    });
-  });
-
-  return (
-    <group ref={group}>
-      {particles.current.map((particle, i) => (
-        <mesh
-          key={i}
-          position={particle.position}
-          rotation={particle.rotation}
-          scale={particle.scale}
-        >
-          <boxGeometry args={[1, 0.1, 1]} />
-          <meshStandardMaterial color={particle.color} />
-        </mesh>
-      ))}
-    </group>
   );
 }

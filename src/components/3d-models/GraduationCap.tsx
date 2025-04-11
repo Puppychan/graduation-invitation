@@ -7,8 +7,9 @@ Title: Graduation Cap Pro
 */
 import { useGLTF } from "@react-three/drei";
 import { Mesh } from "three";
+import { GeneralGroupProps } from "../../utils/types";
 
-export function GraduationCap(props) {
+export function GraduationCap(props: GeneralGroupProps) {
   const { nodes, materials } = useGLTF("/models/graduation_cap_pro.glb");
   return (
     <group {...props} dispose={null}>

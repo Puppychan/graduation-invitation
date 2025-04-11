@@ -15,7 +15,6 @@ export default function SubtitleSection({
 }) {
   return (
     <group position={position}>
-      <ambientLight intensity={0.5} />
       <spotLight
         position={[-2, -7, 10]}
         angle={0.15}
@@ -33,9 +32,6 @@ export default function SubtitleSection({
         />
         {/* Cherry blossom petals */}
         <CherryBlossomPetals count={50} />
-
-        {/* Candy elements */}
-        {/* <CandyCluster count={20} /> */}
 
         {/* Cotton candy clouds */}
         {/* Top */}

@@ -4,6 +4,9 @@ import CherryBlossomPetals from "../components/3d-shapes/CherryBlossomPetal";
 import CandyCluster from "../components/3d-shapes/Candy";
 import CottonCandy from "../components/3d-shapes/CottonCandy";
 import { Sparkles } from "@react-three/drei";
+import { useMemo } from "react";
+import { bubbleColors } from "../utils/color";
+import JellyCandy from "../components/3d-shapes/JellyCandy";
 
 // Welcome Section
 export default function WelcomeSection({
@@ -11,9 +14,34 @@ export default function WelcomeSection({
 }: {
   position: [number, number, number];
 }) {
+  // Create a bunch of bubbles for decoration
+  const bubbles = useMemo(() => {
+    const arr = Array.from({ length: 30 }, () => {
+      return {
+        position: [
+          (Math.random() - 0.5) * 15,
+          (Math.random() - 0.5) * 10,
+          (Math.random() - 1) * 10,
+        ] as [number, number, number],
+        color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)],
+        size: Math.random() * 0.3 + 0.1,
+        wobbleSpeed: Math.random() * 0.5 + 0.8,
+        opacity: Math.random() * 0.5 + 0.3,
+      };
+    });
+    return arr.map((jelly, index) => (
+      <JellyCandy
+        key={index}
+        position={jelly.position as [number, number, number]}
+        color={jelly.color}
+        size={jelly.size}
+        wobbleSpeed={jelly.wobbleSpeed}
+        opacity={jelly.opacity}
+      />
+    ));
+  }, []);
   return (
     <group position={position}>
-      <ambientLight intensity={0.5} />
       <spotLight
         position={[10, 10, position[2]]}
         angle={0.15}
@@ -22,6 +50,8 @@ export default function WelcomeSection({
       />
 
       <Physics gravity={[0, -0.2, 0]}>
+        {/* Bubbles */}
+        {bubbles}
         {/* Main 3D Text */}
         <GumText position={[0, 2, 0]} size={2.5} text="APRIL 2025" />
         {/* <GumText position={[0, -2, 0]} text="DREAMS" /> */}

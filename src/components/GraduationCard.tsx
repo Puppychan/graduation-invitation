@@ -1,176 +1,133 @@
-import { Text, Float, RoundedBox } from "@react-three/drei";
+import { Text, Float, RoundedBox, Image, useTexture } from "@react-three/drei";
+import { useEffect } from "react";
+import { ClampToEdgeWrapping } from "three";
 
-function CardContent({ type }) {
-  if (type == "cover") {
-    return (
-      <>
-        <Text
-          position={[0, 0.8, 0.06]}
-          fontSize={0.4}
-          color="#8c3f71"
-          //   font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          GRADUATION
-        </Text>
-
-        <Text
-          position={[0, 0.2, 0.06]}
-          fontSize={0.3}
-          color="#8c3f71"
-          //   font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          CELEBRATION
-        </Text>
-
-        <Text
-          position={[0, -0.5, 0.06]}
-          fontSize={0.6}
-          color="#8c3f71"
-          //   font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          2025
-        </Text>
-      </>
-    );
-  } else {
-    return (
-      <group position={[0, 0, 0.05]}>
-        <Text
-          position={[1.5, 1.4, 0]}
-          fontSize={0.3}
-          color="#4a6ebf"
-          // font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          JOIN US
-        </Text>
-
-        <Text
-          position={[1.5, 0.8, 0]}
-          fontSize={0.2}
-          color="#4a6ebf"
-          // font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          DATE: MAY 15, 2025
-        </Text>
-
-        <Text
-          position={[1.5, 0.4, 0]}
-          fontSize={0.2}
-          color="#4a6ebf"
-          // font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          TIME: 2:00 PM
-        </Text>
-
-        <Text
-          position={[1.5, 0, 0]}
-          fontSize={0.2}
-          color="#4a6ebf"
-          // font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          LOCATION:
-        </Text>
-
-        <Text
-          position={[1.5, -0.4, 0]}
-          fontSize={0.2}
-          color="#4a6ebf"
-          // font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          SWEET UNIVERSITY
-        </Text>
-
-        <Text
-          position={[1.5, -1, 0]}
-          fontSize={0.18}
-          color="#4a6ebf"
-          // font="/api/placeholder/100/100"
-          anchorX="center"
-          anchorY="middle"
-        >
-          RSVP BY APRIL 30
-        </Text>
-      </group>
-    );
-  }
-}
-// Helper function: returns an object with jelly material properties
-function createJellyMaterialProps(color: string) {
-  return {
-    // emissiveColor: color, // Base color
-    // color: "#eee4fa1", // Base color
-    // emissiveIntensity: 1.5, // Emissive glow
-    color,
-    transmission: 1, // Full transmission for a glassy, jelly effect
-    roughness: 0.05, // Very smooth
-    thickness: 2, // How “deep” the material appears
-    ior: 1.3, // Index of refraction, similar to glass/jelly
-    clearcoat: 1,
-    clearcoatRoughness: 0.05,
-    reflectivity: 0.3,
-    // envMapIntensity: 1.5,
-    transparent: true,
-    opacity: 0.9,
-    // side: FrontSide,
-  };
+function GraduationText({
+  position,
+  text,
+  fontSize = 0.2,
+  color = "#d8e2dc",
+  bold = false,
+}: {
+  position: [number, number, number];
+  text: string;
+  fontSize?: number;
+  bold?: boolean;
+  color?: string;
+}) {
+  return (
+    <Text
+      position={position}
+      fontSize={fontSize}
+      font={bold ? "/fonts/CormorantInfant-Bold.ttf" : "/fonts/CormorantInfant-SemiBold.ttf"}
+      anchorX="left"
+      anchorY="middle"
+    >
+      {text}
+      <meshStandardMaterial
+        color={color}
+        // emissive={emissive}
+        // emissiveIntensity={0.5}
+      />
+    </Text>
+  );
 }
 
 interface GraduationCardProps {
   position: [number, number, number];
 }
 export default function GraduationCard({ position }: GraduationCardProps) {
-  //   const coverRef = useRef<Group>(null);
-  //   const insideRef = useRef<Mesh>(null);
-
-  //   // Animation for card opening
-  //   useFrame(() => {
-  //     if (coverRef.current) {
-  //       const targetRotation = isOpen ? -Math.PI / 2 : 0;
-  //       coverRef.current.rotation.y +=
-  //         (targetRotation - coverRef.current.rotation.y) * 0.1;
-  //     }
-  //   });
-  const cardColor = "#d39afc"; // Soft pastel pink for the card
-  const borderColor = "#ffc1e3"; // Slightly brighter for the border
+  const texture = useTexture("/textures/tranquil.jpg");
+  useEffect(() => {
+    texture.wrapS = ClampToEdgeWrapping;
+    texture.wrapT = ClampToEdgeWrapping;
+    texture.repeat.set(1, 1); // No tiling
+    texture.center.set(0.5, 0.5); // Center anchor
+    texture.rotation = 0; // No rotation
+  }, [texture]);
   return (
-    <group position={position}>
+    <group position={position} scale={2.5}>
       {/* Use a Float from drei to add a cute floating motion */}
       <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.6}>
         {/* Main jelly card as a rounded box */}
-        <RoundedBox args={[4, 2, 0.1]} position={[0, 0, 0]}>
+        <RoundedBox radius={0.2} args={[5.5, 2.7, 0.1]} position={[0, 0, 0]}>
           <meshPhysicalMaterial
             attach="material"
-            {...createJellyMaterialProps(cardColor)}
+            color={"#ffffff"}
+            emissive={"#ff99cc"}
+            emissiveIntensity={0.5}
+            envMapIntensity={2}
+            // color={
+            map={texture}
+            transmission={1} // Full transmission for a glassy, jelly effect
+            roughness={0.05} // Very smooth
+            thickness={2} // How “deep” the material appears
+            ior={1.3} // Index of refraction, similar to glass/jelly
+            clearcoat={1}
+            clearcoatRoughness={0.05}
+            reflectivity={0.3}
+            transparent={true}
+            opacity={0.9}
           />
         </RoundedBox>
-        {/* <RoundedBox
-          args={[4.2, 2.2, 0.1]}
-          radius={0.25} // how rounded the corners are
-          smoothness={5} // increase for smoother geometry
-          position={[0, 0, 0]} // center it
-        >
-          <meshPhysicalMaterial
-            attach="material"
-            {...createJellyMaterialProps(cardColor)}
+
+        <mesh position={[-1.5, 0, 0.1]}>
+          <Image url="/assets/koala.jpg" scale={[1.5, 1.5]} />
+        </mesh>
+        <group position={[-0.5, -0.4, 0.1]}>
+          <GraduationText
+            position={[0, 1.3, 0]}
+            fontSize={0.3}
+            bold={true}
+            text="TRAN MAI NHUNG"
           />
-        </RoundedBox> */}
-        <CardContent type="cover" />
+
+          <GraduationText
+            color="#c0c5c2"
+            position={[0, 1, 0]}
+            fontSize={0.15}
+            text="Date"
+          />
+          <GraduationText
+            position={[0, 0.8, 0]}
+            fontSize={0.2}
+            bold={true}
+            text="SESSION 1 APRIL 14, 2025"
+          />
+
+          <GraduationText
+            color="#c0c5c2"
+            position={[0, 0.4, 0]}
+            fontSize={0.15}
+            text="Time"
+          />
+          <GraduationText
+            position={[0, 0.2, 0]}
+            fontSize={0.2}
+            bold={true}
+            text="AFTER 11 AM"
+          />
+
+          <GraduationText
+            position={[0, -0.2, 0]}
+            fontSize={0.15}
+            color = "#c0c5c2"
+            text="LOCATION"
+          />
+
+          <GraduationText
+            position={[0, -0.4, 0]}
+            fontSize={0.2}
+            bold={true}
+            text="RMIT UNIVERSITY"
+          />
+          <GraduationText
+            position={[0, -0.65, 0]}
+            fontSize={0.2}
+            bold={true}
+            text="SGS CAMPUS"
+          />
+        </group>
       </Float>
     </group>
   );

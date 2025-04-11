@@ -7,8 +7,9 @@ Title: Wooden Bench
 */
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
+import { GeneralGroupProps } from '../../utils/types'
 
-export function WoodenBench(props) {
+export function WoodenBench(props: GeneralGroupProps) {
   const { nodes, materials } = useGLTF('/models/wooden_bench.glb')
   return (
     <group {...props} dispose={null}>

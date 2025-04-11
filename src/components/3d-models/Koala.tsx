@@ -8,8 +8,9 @@ Title: Koala from Poly by Google
 
 import { useGLTF } from '@react-three/drei'
 import { Mesh } from 'three'
+import { GeneralGroupProps } from '../../utils/types'
 
-export function Koala(props) {
+export function Koala(props: GeneralGroupProps) {
   const { nodes, materials } = useGLTF('/models/koala_from_poly_by_google.glb')
   return (
     <group {...props} dispose={null}>
