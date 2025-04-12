@@ -50,7 +50,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {showWelcome ? (
-        <div className="h-full-fix">
+        <div className="h-screen">
           {/* <StarryBackground /> */}
           <IntroTypeScreen onComplete={handleWelcomeComplete} />
         </div>
