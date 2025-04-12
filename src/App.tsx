@@ -4,6 +4,7 @@ import { ThemeContext } from "./context/theme-context";
 import { darkTheme, lightTheme } from "./utils/color";
 import Home from "./pages/Home";
 import IntroTypeScreen from "./sections/IntroTypeScreen";
+import StarryBackground from "./components/StarryBackground";
 
 const THEME_KEY = "preferred-theme";
 
@@ -47,7 +48,10 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {showWelcome ? (
-        <IntroTypeScreen onComplete={handleWelcomeComplete} />
+        <>
+          <StarryBackground />
+          <IntroTypeScreen onComplete={handleWelcomeComplete} />
+        </>
       ) : (
         <Home />
       )}

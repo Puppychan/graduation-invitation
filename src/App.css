@@ -10,16 +10,39 @@
   @apply box-border m-0 p-0;
 }
 
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-between-center {
+    @apply flex items-center justify-between;
+  }
+
+  .bg-clip-text-transparent {
+    @apply bg-clip-text text-transparent;
+  }
+  .bg-grad-to-r-purple-pink {
+    @apply bg-gradient-to-r from-purple-600 to-rose-500 dark:from-purple-400 dark:to-pink-300;
+  }
+  .bg-grad-to-tl-purple-pink {
+    @apply bg-gradient-to-tl from-pink-500 to-purple-600 dark:from-pink-300 dark:to-purple-400;
+  }
+}
+
 @layer components {
   .bar-container {
     @apply px-2 md:px-6 lg:px-8 w-full;
     @apply py-3 lg:py-10;
   }
+  .bar-component-container {
+    @apply flex gap-2 lg:gap-4;
+  }
+  
   .display-text-color {
     @apply text-slate-700 dark:text-pink-200;
   }
   .display-icon {
-    @apply w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9; 
+    @apply w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 cursor-pointer; 
   }
 
   .nav-button {
@@ -30,5 +53,15 @@
     @apply rounded-full shadow drop-shadow transition-all;
     @apply disabled:opacity-50 disabled:cursor-not-allowed;
   }
+
+  .instruction-row {
+    @apply flex items-center gap-4;
+    @apply px-1 py-2 md:p-3 ;
+    @apply rounded-lg bg-white/50 dark:bg-gray-800/50 shadow-sm;
+  }
+  .instruction-icon-container {
+    @apply p-2 rounded-full;
+  }
+  
 }
 

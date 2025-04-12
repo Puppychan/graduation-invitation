@@ -9,9 +9,9 @@ export default function TopBar() {
   return (
     <div
       className="bar-container absolute top-0 left-0
-      flex justify-between items-center"
+      flex-between-center"
     >
-      <button onClick={() => setShowInstructions(true)} className="info-button">
+      <button onClick={() => setShowInstructions(true)} className="hover:opacity-70">
         <IoMdInformationCircleOutline className="display-text-color display-icon" />
       </button>
 

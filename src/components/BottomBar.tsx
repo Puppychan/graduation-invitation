@@ -22,7 +22,7 @@ function NavigateButtons({
   totalSections,
 }: BottomBarProps) {
   return (
-    <div className="flex justify-center items-center gap-2 lg:gap-8">
+    <div className="flex-center gap-2 lg:gap-8">
       <button
         onClick={onPrev}
         disabled={currentSection === 0}
@@ -55,11 +55,11 @@ export function BottomBar({
 }: BottomBarProps) {
   return (
     <div
-      className="absolute bottom-0 left-0 right-0 bar-container
-    flex justify-between items-center z-10
+      className="absolute bottom-0 left-0 bar-container
+    flex-between-center z-10
     bg-pink-100/50 dark:bg-zinc-900/40 lg:bg-transparent lg:dark:bg-transparent"
     >
-      <div className="display-text-color flex gap-2 lg:gap-4">
+      <div className="display-text-color bar-component-container">
         <a
           href="https://github.com/Puppychan/graduation-invitation"
           target="_blank"
@@ -77,7 +77,7 @@ export function BottomBar({
         currentSection={currentSection}
         totalSections={totalSections}
       />
-      <div className="display-text-color flex gap-2 lg:gap-4">
+      <div className="display-text-color bar-component-container">
         <a
           href="https://github.com/Puppychan"
           target="_blank"
