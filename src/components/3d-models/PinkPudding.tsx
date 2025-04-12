@@ -58,4 +58,4 @@ export function PinkPudding(props: GeneralGroupProps) {
   );
 }
 
-useGLTF.preload("/models/pink_pudding.glb");
+

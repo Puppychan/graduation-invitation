@@ -1,4 +1,4 @@
-import { CameraControls, PerspectiveCamera } from "@react-three/drei";
+import { CameraControls } from "@react-three/drei";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import WelcomeSection from "../sections/WelcomeSection";
@@ -171,16 +171,13 @@ export default function Scene({
         sectionOffsets={sectionOffsets}
         sectionPositions={sectionPositions}
       />
-      <PerspectiveCamera
-        makeDefault
-        fov={30}
-        position={[0, 0, sectionPositions[0].z + sectionOffsets[0].z]}
-      />
 
       {/* Welcome Section (visible from far) */}
       <WelcomeSection
         position={sectionPositions[0].toArray() as [number, number, number]}
       />
+
+      {/* Subtitle Section (visible when zooming in) */}
       <SubtitleSection
         position={sectionPositions[1].toArray() as [number, number, number]}
       />

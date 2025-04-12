@@ -27,3 +27,4 @@ export default function RMITCampus({ position, scale = 1 }: RMITCampusProps) {
     </group>
   );
 }
+

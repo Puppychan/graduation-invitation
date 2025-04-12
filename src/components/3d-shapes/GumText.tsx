@@ -1,5 +1,5 @@
-import { Center, Float, Text3D, useMatcapTexture } from "@react-three/drei";
-import { useMemo, useRef } from "react";
+import { Center, Float, Text3D, useTexture } from "@react-three/drei";
+import { Suspense, useMemo, useRef } from "react";
 import { Mesh } from "three";
 import { useMediaQuery } from "react-responsive";
 import { SCREEN_SIZES } from "../../utils/screen-size-constants";
@@ -19,11 +19,14 @@ export default function GumText({
   size = 3,
   color = "mistyrose",
 }: GumTextProps) {
-  const [matcapTexture] = useMatcapTexture("CB5E3B_FABC7A_EF965E_F4A46C");
   const ref = useRef<Mesh>(null);
+  const matcapTexture = useTexture("/textures/CB5E3B_FABC7A_EF965E_F4A46C.png");
 
   const isSmall = useMediaQuery({ maxWidth: SCREEN_SIZES.SMALL });
-  const isMobile = useMediaQuery({ minWidth: SCREEN_SIZES.SMALL, maxWidth: SCREEN_SIZES.MOBILE });
+  const isMobile = useMediaQuery({
+    minWidth: SCREEN_SIZES.SMALL,
+    maxWidth: SCREEN_SIZES.MOBILE,
+  });
   const isTablet = useMediaQuery({
     minWidth: SCREEN_SIZES.MOBILE,
     maxWidth: SCREEN_SIZES.TABLET,
@@ -32,8 +35,7 @@ export default function GumText({
   const responsiveSize = useMemo(() => {
     if (isSmall) {
       return size * 0.3;
-    }
-    else if (isMobile) {
+    } else if (isMobile) {
       return size * 0.5;
     } else if (isTablet) {
       return size * 0.7;
@@ -41,10 +43,13 @@ export default function GumText({
     return size;
   }, [isMobile, isSmall, isTablet, size]);
 
+  if (!matcapTexture) return null;
+
   return (
     <Center position={position} rotation={rotation}>
       {/* <Physics gravity={[0, 10, 0]}> */}
       <Float speed={1}>
+        <Suspense fallback={null}>
         <Text3D
           position={[0, 0, -10]}
           ref={ref}
@@ -63,6 +68,7 @@ export default function GumText({
           {text}
           <meshMatcapMaterial color={color} matcap={matcapTexture} />
         </Text3D>
+        </Suspense>
       </Float>
       {/* </Physics> */}
     </Center>

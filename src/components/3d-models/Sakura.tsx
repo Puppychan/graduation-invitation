@@ -45,4 +45,3 @@ export function Sakura(props: GeneralGroupProps) {
   );
 }
 
-useGLTF.preload("/models/sakura.glb");

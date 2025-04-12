@@ -72,5 +72,3 @@ export function GraduationCap(props: GeneralGroupProps) {
     </group>
   );
 }
-
-useGLTF.preload("/models/graduation_cap_pro.glb");

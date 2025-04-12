@@ -1,14 +1,21 @@
-import { Environment, Stars } from "@react-three/drei";
+import {
+  Environment,
+  PerspectiveCamera,
+  Preload,
+  Stars,
+} from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import Scene from "../components/ScrollManager";
 import { NavigationButtons } from "../components/NavigateButtons";
 import { Vector3 } from "three";
 import AnimatedThemeToggle from "../components/AnimatedThemeToggle";
 import { useTheme } from "../context/theme-context";
 import { twMerge } from "tailwind-merge";
-// import Scene from "../components/ScrollManager";
+import CanvasLoader from "../components/CanvasLoader";
+import "../utils/preload-assets";
+
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -21,7 +28,7 @@ export default function Home() {
       new Vector3(0, 0, 90),
       new Vector3(60, 0, 60),
       new Vector3(120, 0, 30),
-      new Vector3(180, 0, 0),
+      new Vector3(160, 0, 0),
     ];
 
     // Camera offsets for better viewing angles
@@ -64,15 +71,37 @@ export default function Home() {
     <div className={twMerge(`w-screen h-screen`, theme.background)}>
       {/* <div className="w-screen h-screen bg-gradient-to-br from-slate-950 via-indigo-900 to-blue-950"> */}
       <Canvas dpr={[1, 2]}>
-        {theme.name === "dark" && <Stars
-          radius={300} // Radius of the inner sphere (default=100)
-          depth={60} // Depth of area where stars should fit (default=50)
-          count={5000} // Amount of stars (default=5000)
-          factor={10} // Scale factor of the stars (default=4)
-          saturation={0} // Saturation 0-1 (default=0)
-          fade // Faded dots
-          speed={1} // Rotation speed
-        />}
+        <Suspense fallback={<CanvasLoader />}>
+          <Scene
+            setCurrentSection={setCurrentSection}
+            currentSection={currentSection}
+            isClickedNavButton={isClickedNavButtons}
+            setIsClickedNavButton={setIsClickedNavButtons}
+            sectionPositions={sectionPositions}
+            sectionOffsets={sectionOffsets}
+          />
+          <Preload all />
+        </Suspense>
+        <Suspense fallback={null}>
+          {theme.name === "dark" && (
+            <Stars
+              radius={300} // Radius of the inner sphere (default=100)
+              depth={60} // Depth of area where stars should fit (default=50)
+              count={5000} // Amount of stars (default=5000)
+              factor={10} // Scale factor of the stars (default=4)
+              saturation={0} // Saturation 0-1 (default=0)
+              fade // Faded dots
+              speed={1} // Rotation speed
+            />
+          )}
+          <Environment preset="sunset" />
+        </Suspense>
+        <PerspectiveCamera
+          makeDefault
+          fov={30}
+          position={[0, 0, sectionPositions[0].z + sectionOffsets[0].z]}
+        />
+
         <ambientLight intensity={0.7} />
         <directionalLight position={[3, 3, 3]} intensity={1} />
 
@@ -80,19 +109,6 @@ export default function Home() {
         <pointLight position={[-10, -10, -10]} intensity={0.5} />
 
         <hemisphereLight intensity={0.2} color="#eaeaea" groundColor="blue" />
-
-        {/* <ScrollManager onSectionChange={setCurrentSection} section={currentSection} /> */}
-        <Scene
-          setCurrentSection={setCurrentSection}
-          currentSection={currentSection}
-          isClickedNavButton={isClickedNavButtons}
-          setIsClickedNavButton={setIsClickedNavButtons}
-          sectionPositions={sectionPositions}
-          sectionOffsets={sectionOffsets}
-        />
-
-        {/* Soft pastel environment */}
-        <Environment preset="sunset" />
 
         {/* Post-processing bloom for the glow */}
         <EffectComposer>

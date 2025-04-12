@@ -37,4 +37,4 @@ export function WoodenBench(props: GeneralGroupProps) {
   )
 }
 
-useGLTF.preload('/models/wooden_bench.glb')
+

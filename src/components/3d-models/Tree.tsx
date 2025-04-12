@@ -31,5 +31,3 @@ export function Tree(props: GeneralGroupProps) {
     </group>
   )
 }
-
-useGLTF.preload('/models/beech_tree.glb')

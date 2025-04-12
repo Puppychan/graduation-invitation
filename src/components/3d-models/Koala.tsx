@@ -41,5 +41,3 @@ export function Koala(props: GeneralGroupProps) {
     </group>
   )
 }
-
-useGLTF.preload('/models/koala_from_poly_by_google.glb')

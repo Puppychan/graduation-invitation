@@ -44,3 +44,5 @@ export default function SchoolCard({ position }: SchoolCardProps) {
     </group>
   );
 }
+
+

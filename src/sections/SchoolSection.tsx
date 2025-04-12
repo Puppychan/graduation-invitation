@@ -1,12 +1,12 @@
 import { Physics } from "@react-three/cannon";
 import { Sparkles } from "@react-three/drei";
-import SchoolCard from "../components/SchoolCard";
-import { RMITConfetti } from "../components/RMITConfetti";
+import SchoolCard from "../components/3d-shapes/SchoolCard";
 import { Tree } from "../components/3d-models/Tree";
 import { Sakura } from "../components/3d-models/Sakura";
 import { Grass } from "../components/3d-models/Grass";
-import RMITCampus from "../components/RMITCampus";
-import { RMIT3DText } from "../components/RMIT3DText";
+import RMITCampus from "../components/3d-shapes/RMITCampus";
+import { RMIT3DText } from "../components/3d-shapes/RMIT3DText";
+import { RMITConfetti } from "../components/3d-shapes/RMITConfetti";
 
 interface SchoolSectionProps {
   position: [number, number, number];

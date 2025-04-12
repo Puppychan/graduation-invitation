@@ -2,7 +2,7 @@ import {
   Sparkles,
 } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
-import GraduationCard from "../components/GraduationCard";
+import GraduationCard from "../components/3d-shapes/GraduationCard";
 import CherryBlossomPetals from "../components/3d-shapes/CherryBlossomPetal";
 import { Sakura } from "../components/3d-models/Sakura";
 import { Grass } from "../components/3d-models/Grass";

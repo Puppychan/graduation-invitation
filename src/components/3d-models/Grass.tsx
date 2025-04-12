@@ -41,5 +41,3 @@ export function Grass(props: GeneralGroupProps) {
     </group>
   )
 }
-
-useGLTF.preload('/models/grass.glb')

@@ -2,7 +2,7 @@ import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { DoubleSide, Euler, Group, Vector3 } from "three";
-import { GraduationCap } from "./3d-models/GraduationCap";
+import { GraduationCap } from "../3d-models/GraduationCap";
 
 interface RMITConfettiProps {
   count?: number;
@@ -49,6 +49,7 @@ export function RMITConfetti({
         case "hat":
           return (
             <GraduationCap
+              key={i}
               scale={p.scale}
               position={p.position}
               rotation={p.rotation}

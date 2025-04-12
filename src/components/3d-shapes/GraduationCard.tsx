@@ -132,3 +132,4 @@ export default function GraduationCard({ position }: GraduationCardProps) {
     </group>
   );
 }
+
