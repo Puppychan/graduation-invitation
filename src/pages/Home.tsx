@@ -8,13 +8,13 @@ import { Canvas } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import Scene from "../components/ScrollManager";
-import { NavigationButtons } from "../components/NavigateButtons";
+import { BottomBar } from "../components/BottomBar";
 import { Vector3 } from "three";
-import AnimatedThemeToggle from "../components/AnimatedThemeToggle";
 import { useTheme } from "../context/theme-context";
 import { twMerge } from "tailwind-merge";
 import CanvasLoader from "../components/CanvasLoader";
 import "../utils/preload-assets";
+import TopBar from "../components/TopBar";
 
 
 export default function Home() {
@@ -68,7 +68,7 @@ export default function Home() {
   }, [currentSection, sectionsProgress.length]);
 
   return (
-    <div className={twMerge(`w-screen h-screen`, theme.background)}>
+    <div className={twMerge(`w-screen h-screen relative`, theme.background)}>
       {/* <div className="w-screen h-screen bg-gradient-to-br from-slate-950 via-indigo-900 to-blue-950"> */}
       <Canvas dpr={[1, 2]}>
         <Suspense fallback={<CanvasLoader />}>
@@ -115,13 +115,13 @@ export default function Home() {
           <Bloom luminanceThreshold={0.2} intensity={1} radius={1} />
         </EffectComposer>
       </Canvas>
-      <NavigationButtons
+      <BottomBar
         onPrev={onClickPrevSection}
         onNext={onClickNextSection}
         currentSection={currentSection}
         totalSections={sectionsProgress.length}
       />
-      <AnimatedThemeToggle />
+      <TopBar />
     </div>
   );
 }

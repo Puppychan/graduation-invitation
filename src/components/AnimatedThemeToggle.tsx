@@ -11,7 +11,8 @@ export default function AnimatedThemeToggle() {
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       className={twMerge(
-        "absolute top-4 right-4 z-10",
+        // "absolute top-2 right-1 md:right-2 lg:top-4 lg:right-4 z-10 ",
+        "scale-[80%] md:scale-90 lg:scale-100",
         "w-[80px] h-[42px] rounded-full drop-shadow shadow",
         "cursor-pointer p-0 border-0 outline-none transition-colors duration-300 ease-in-out",
         "focus:outline-none hover:outline-none"

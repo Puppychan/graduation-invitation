@@ -1,11 +1,34 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@layer base {
-  @apply box-border m-0 p-0;
-}
 #root {
   max-width: 1280px;
   text-align: center;
+}
+
+@layer base {
+  @apply box-border m-0 p-0;
+}
+
+@layer components {
+  .bar-container {
+    @apply px-2 md:px-6 lg:px-8 w-full;
+    @apply py-3 lg:py-10;
+  }
+  .display-text-color {
+    @apply text-slate-700 dark:text-pink-200;
+  }
+  .display-icon {
+    @apply w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9; 
+  }
+
+  .nav-button {
+    @apply px-4 py-2;
+    @apply bg-[#a688aa] hover:bg-[#937294] dark:bg-[#ffb6c1] dark:hover:bg-[#f794ac];
+    @apply text-fuchsia-100 dark:text-slate-700;
+    @apply text-lg md:text-xl lg:text-2xl p-2;
+    @apply rounded-full shadow drop-shadow transition-all;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
 }
 
