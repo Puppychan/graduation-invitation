@@ -3,6 +3,7 @@ import "./App.css";
 import { ThemeContext } from "./context/theme-context";
 import { darkTheme, lightTheme } from "./utils/color";
 import Home from "./pages/Home";
+import IntroTypeScreen from "./sections/IntroTypeScreen";
 
 const THEME_KEY = "preferred-theme";
 
@@ -37,10 +38,19 @@ function App() {
   };
 
   const theme = useMemo(() => (isDark ? darkTheme : lightTheme), [isDark]);
+  const [showWelcome, setShowWelcome] = useState(true);
+
+  const handleWelcomeComplete = () => {
+    setShowWelcome(false);
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <Home />
+      {showWelcome ? (
+        <IntroTypeScreen onComplete={handleWelcomeComplete} />
+      ) : (
+        <Home />
+      )}
     </ThemeContext.Provider>
   );
 }
