@@ -11,6 +11,9 @@
 }
 
 @layer utilities {
+  .h-full-fix {
+    height: calc(var(--vh) * 100);
+  }
   .flex-center {
     @apply flex items-center justify-center;
   }

@@ -61,7 +61,7 @@ export default function IntroTypeScreen({ onComplete }: Props) {
   return (
     <div
       className={twMerge(
-        "w-screen h-screen flex items-center justify-center",
+        "w-screen h-full flex items-center justify-center",
         theme.background
       )}
     >

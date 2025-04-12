@@ -4,11 +4,13 @@ import { ThemeContext } from "./context/theme-context";
 import { darkTheme, lightTheme } from "./utils/color";
 import Home from "./pages/Home";
 import IntroTypeScreen from "./sections/IntroTypeScreen";
-import StarryBackground from "./components/StarryBackground";
+import useViewportHeight from "./utils/useViewportHeight";
+// import StarryBackground from "./components/StarryBackground";
 
 const THEME_KEY = "preferred-theme";
 
 function App() {
+  useViewportHeight();
   const [isDark, setIsDark] = useState(false);
   // Load from localStorage on mount
   useEffect(() => {
@@ -48,10 +50,10 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {showWelcome ? (
-        <>
-          <StarryBackground />
+        <div className="h-full-fix">
+          {/* <StarryBackground /> */}
           <IntroTypeScreen onComplete={handleWelcomeComplete} />
-        </>
+        </div>
       ) : (
         <Home />
       )}

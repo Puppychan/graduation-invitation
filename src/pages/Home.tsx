@@ -68,7 +68,7 @@ export default function Home() {
   }, [currentSection, sectionsProgress.length]);
 
   return (
-    <div className={twMerge(`w-screen h-screen relative`, theme.background)}>
+    <div className={twMerge(`w-screen relative`, theme.background, "h-full-fix")}>
       {/* <div className="w-screen h-screen bg-gradient-to-br from-slate-950 via-indigo-900 to-blue-950"> */}
       <Canvas dpr={[1, 2]}>
         <Suspense fallback={<CanvasLoader />}>
