@@ -25,10 +25,11 @@ export default function SubtitleSection({
       <Physics gravity={[0, -0.2, 0]}>
         {/* Main 3D Text */}
         <GumText
-          position={[5, 5, 15]}
-          rotation={[-Math.PI / 4, -0.3, -Math.PI / 2.5]} // [-1.25, 0, 1.57]
+          position={[4, -3, 0]}
+          // rotation={[-Math.PI / 4, -0.3, -Math.PI / 2.5]} // [-1.25, 0, 1.57]
           size={0.7}
           text="GRADUATION"
+          color="pink"
         />
         {/* Cherry blossom petals */}
         <CherryBlossomPetals count={50} />

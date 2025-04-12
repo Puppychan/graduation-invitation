@@ -1,32 +1,22 @@
 // theme.ts
 export const lightTheme = {
-  background: "#ffffff",
-  primary: "#add8e6", // Light blue
+  name: "light",
+  background: "bg-gradient-to-br from-cyan-100 via-indigo-200 to-rose-200",
+  primary: "#a688aa", // Light blue
   secondary: "#ffb6c1", // Light pink
   accent: "#ffd700", // Gold
   text: "#111111",
-  jelly: {
-    pink: 0xffb6c1,
-    blue: 0xadd8e6,
-    mint: 0x98fb98,
-    coral: 0xfd5e53,
-    purple: 0xc3b1e1,
-  },
+  border: "#cccccc",
 };
 
 export const darkTheme = {
-  background: "#0f0f0f",
-  primary: "#1e90ff", // Dodger blue
+  name: "dark",
+  background: "bg-gradient-to-br from-slate-950 via-indigo-900 to-blue-950",
+  primary: "#2f4858", // Dodger blue
   secondary: "#ff69b4", // Hot pink
   accent: "#ffdb58", // Mustard yellow
   text: "#f0f0f0",
-  jelly: {
-    pink: 0xff69b4,
-    blue: 0x1e90ff,
-    mint: 0x32cd32,
-    coral: 0xff6347,
-    purple: 0x9370db,
-  },
+  border: "#444444",
 };
 
 export const bubbleColors = [
