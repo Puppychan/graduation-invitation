@@ -5,7 +5,7 @@ import { darkTheme, lightTheme } from "./utils/color";
 import Home from "./pages/Home";
 import IntroTypeScreen from "./sections/IntroTypeScreen";
 import useViewportHeight from "./utils/useViewportHeight";
-// import StarryBackground from "./components/StarryBackground";
+import StarryBackground from "./components/StarryBackground";
 
 const THEME_KEY = "preferred-theme";
 
@@ -51,7 +51,7 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {showWelcome ? (
         <div className="h-screen">
-          {/* <StarryBackground /> */}
+          <StarryBackground />
           <IntroTypeScreen onComplete={handleWelcomeComplete} />
         </div>
       ) : (
