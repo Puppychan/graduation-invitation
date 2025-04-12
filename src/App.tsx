@@ -10,16 +10,20 @@ function App() {
   const [isDark, setIsDark] = useState(false);
   // Load from localStorage on mount
   useEffect(() => {
+    const html = document.documentElement;
     const stored = localStorage.getItem(THEME_KEY);
     if (stored === "dark") {
       setIsDark(true);
+      html.classList.add("dark");
     } else if (stored === "light") {
       setIsDark(false);
+      html.classList.remove("dark");
     } else {
       const prefersDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
       setIsDark(prefersDark);
+      html.classList.toggle("dark", prefersDark);
       localStorage.setItem(THEME_KEY, prefersDark ? "dark" : "light");
     }
   }, []);
@@ -27,6 +31,8 @@ function App() {
   const toggleTheme = () => {
     const newTheme = isDark ? false : true;
     setIsDark(newTheme);
+    const html = document.documentElement;
+    html.classList.toggle("dark", newTheme);
     localStorage.setItem(THEME_KEY, newTheme ? "dark" : "light");
   };
 

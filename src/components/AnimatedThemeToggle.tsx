@@ -12,12 +12,11 @@ export default function AnimatedThemeToggle() {
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       className={twMerge(
         "absolute top-4 right-4 z-10",
-        "w-[80px] h-[42px] rounded-full",
+        "w-[80px] h-[42px] rounded-full drop-shadow shadow",
         "cursor-pointer p-0 border-0 outline-none transition-colors duration-300 ease-in-out",
         "focus:outline-none hover:outline-none"
       )}
       style={{
-        borderRadius: "calc(infinity * 1px)",
         backgroundColor: theme.secondary,
       }}
     >

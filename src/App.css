@@ -1,10 +1,9 @@
 @import "tailwindcss";
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+  @apply box-border m-0 p-0;
+}
 #root {
   max-width: 1280px;
   text-align: center;

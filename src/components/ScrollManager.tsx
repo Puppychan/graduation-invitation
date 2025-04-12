@@ -60,13 +60,11 @@ export function CustomCameraControls({
         true // animate
       );
 
-      if (transitionTimeoutRef.current)
-        clearTimeout(transitionTimeoutRef.current);
       // Set a timeout to complete the transition after animation finishes
       transitionTimeoutRef.current = setTimeout(() => {
+        setCurrentSection(sectionIndex);
         zPosition.current = cameraPos.z;
         isTransitioning.current = false;
-        setCurrentSection(sectionIndex);
         setIsClickedNavButton(0); // Reset button click state
         console.log("Animation complete, now at section:", sectionIndex);
       }, 1000); // Animation duration - increased for smoother transitions
