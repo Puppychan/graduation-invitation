@@ -63,13 +63,13 @@ export const generateGraduationMessage = () => {
     case "toho":
       return {
         name: `Dear ${name}`,
-        message: `Being part of the TOHO club with you has been one of the highlights of my time at RMIT. Your support, friendship, and the experiences we shared in the club have shaped my university journey in meaningful ways. Thank you for being an amazing part of this chapter of my life as I celebrate this graduation milestone.`,
+        message: `The TOHO club wouldn't have been the same without you. Thanks for all the good times and support throughout our RMIT days. Really value the experiences we shared and how they've added to my university journey. Appreciate having you as part of this chapter!`,
       };
 
     case "capstone":
       return {
         name: `Hey ${name}`,
-        message: `Working with you on our Capstone project was such an amazing ride! 😊 Your awesome ideas, dedication, and the way we clicked as a team made our project not just successful, but super fun too. As I'm graduating, I just wanted to say how much I appreciate you being such a rockstar teammate. Thanks for making this wild academic journey so much better!`,
+        message: `Really enjoyed working with you on our Capstone project! Your ideas and dedication made a big difference to our success. Thanks for being such a great teammate - made the whole experience much more enjoyable. Appreciate all your contributions!`,
       };
 
     case "best":
@@ -81,7 +81,7 @@ export const generateGraduationMessage = () => {
     default:
       return {
         name: `Hey ${name}`,
-        message: `Just wanted to say thanks for being part of my RMIT journey! All those study sessions, laughs, and good times really made university life way better. It's been great having you around, and I'm glad we got to share this experience together. Thanks for being an awesome friend through it all!`,
+        message: `Thanks for making uni more fun! Appreciate all the laughs and good times at RMIT. Catch up soon?`,
       };
   }
 };
