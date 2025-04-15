@@ -1,7 +1,10 @@
 # 🎓 Graduation Invitation
 
 A beautiful, interactive 3D web-based graduation invitation built with React Three Fiber, combining immersive design, animations, and real-time 3D effects to create a memorable digital celebration experience.
-[Live Demo](https://nhung-graduation-invitation.netlify.app/)
+
+- 🎞️ [Demo Link](https://youtu.be/tBg4vugtb3o) - In dark mode only
+- 🌟 [Live Link](https://nhung-graduation-invitation.netlify.app/)
+
 
 ## 🌟 Features
 
@@ -11,7 +14,8 @@ A beautiful, interactive 3D web-based graduation invitation built with React Thr
 - 💡 Real-time lighting, camera motion, and postprocessing (Bloom)
 - 📱 Responsive HTML overlays styled with TailwindCSS
 - 🎨 Customizable thank you message (based on url path: `lec_<name>` - lecturer, `toho_<name>` - Tourism Hospitality club, `capstone_<name>` - Capstone team, `best_<name>` - My best friends)
-- [🌐 Live Demo](https://nhung-graduation-invitation.netlify.app/)
+- [🌐 Live Link](https://nhung-graduation-invitation.netlify.app/)
+- [🎞️ Demo Video](https://youtu.be/tBg4vugtb3o)
 
 ## 🚀 Technologies Used
 
@@ -66,23 +70,46 @@ A beautiful, interactive 3D web-based graduation invitation built with React Thr
 ## ⚙️ Getting Started
 
 ### 1. Clone the repo
-
+``` bash
 git clone https://github.com/Puppychan/graduation-invitation
 cd graduation-invitation
+```
 
 ### 2. Install dependencies
 
-npm install
+`npm install`
 
 ### 3. Start the dev server
 
-npm run dev
+`npm run dev`
 
 ## 🖼 Screenshots
 
-Light Mode | Dark Mode
-<img width="1512" alt="Screenshot 2025-04-13 at 10 15 28" src="https://github.com/user-attachments/assets/2ecbb528-651d-447e-8408-2514531c8d6c" /> | <img width="1506" alt="image" src="https://github.com/user-attachments/assets/da205787-4b57-40d2-8562-e7f978846895" />
-<img width="1512" alt="image" src="https://github.com/user-attachments/assets/00224beb-62ba-4979-a5ae-a9b05c8cb39e" /> | <img width="1512" alt="image" src="https://github.com/user-attachments/assets/5e46c56c-d184-442e-b8b8-86c0c4527ee0" />
+<table>
+  <tr>
+    <td align="center"></td>
+    <td align="center"><strong>🌚 Dark Mode</strong></td>
+    <td align="center"><strong>🌝 Light Mode</strong></td>
+  </tr>
+  <tr>
+    <td align="center">Welcome</td>
+    <td align="center">
+      <img width="1512" alt="Screenshot 2025-04-13 at 10 15 28" src="https://github.com/user-attachments/assets/2ecbb528-651d-447e-8408-2514531c8d6c" />
+    </td>
+    <td align="center">
+      <img width="1506" alt="image" src="https://github.com/user-attachments/assets/da205787-4b57-40d2-8562-e7f978846895" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">Invitation Info</td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/00224beb-62ba-4979-a5ae-a9b05c8cb39e" />
+    </td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/5e46c56c-d184-442e-b8b8-86c0c4527ee0" />
+    </td>
+  </tr>
+</table>
 
 ## 🧠 Inspiration
 
@@ -110,18 +137,17 @@ This project uses a dual licensing structure:
 
 - 🧠 Source code: [MIT License](LICENSE)
 - 🎨 Design and layout: [CC BY-NC 4.0](LICENSE-CC-BY-NC.md)
-    
-    Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
-    
-    This work is licensed under a
-    [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
 
-    [![CC BY-NC 4.0][cc-by-nc-image]][cc-by-nc]
+  Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
 
-    [cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
-    [cc-by-nc-image]: https://licensebuttons.net/l/by-nc/4.0/88x31.png
-    [cc-by-nc-shield]: https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg
+  This work is licensed under a
+  [Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
 
+  [![CC BY-NC 4.0][cc-by-nc-image]][cc-by-nc]
+
+  [cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
+  [cc-by-nc-image]: https://licensebuttons.net/l/by-nc/4.0/88x31.png
+  [cc-by-nc-shield]: https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg
 
 ### Attribution Requirements
 
