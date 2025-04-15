@@ -1,4 +1,4 @@
-<img width="1512" alt="image" src="https://github.com/user-attachments/assets/2c0847df-0711-424d-8e9a-1398a882ad73" /><img width="1512" alt="image" src="https://github.com/user-attachments/assets/13a7fa35-7309-4cb2-ac4e-9fc37977a3ca" /># 🎓 Graduation Invitation
+# 🎓 Graduation Invitation
 
 A beautiful, interactive 3D web-based graduation invitation built with React Three Fiber, combining immersive design, animations, and real-time 3D effects to create a memorable digital celebration experience.
 
