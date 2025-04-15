@@ -108,8 +108,8 @@ Have ideas or feedback? Feel free to open an issue or submit a PR!
 
 This project uses a dual licensing structure:
 
-- **Source Code**: Licensed under the [MIT License](LICENSE)
-- **Visual Design, Scene Arrangement, and UI/UX Ideas**: Licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](LICENSE-DESIGN)
+- 🧠 Source code: [MIT License](LICENSE)
+- 🎨 Design and layout: [CC BY-NC 4.0](LICENSE-CC-BY-NC.md)
     
     Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
     
