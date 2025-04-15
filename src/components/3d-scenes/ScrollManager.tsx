@@ -1,10 +1,10 @@
 import { CameraControls } from "@react-three/drei";
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import WelcomeSection from "../sections/WelcomeSection";
-import SubtitleSection from "../sections/SubtitleSection";
-import SchoolSection from "../sections/SchoolSection";
-import InvitationSection from "../sections/InvitationSection";
+import WelcomeSection from "../../sections/WelcomeSection";
+import SubtitleSection from "../../sections/SubtitleSection";
+import SchoolSection from "../../sections/SchoolSection";
+import InvitationSection from "../../sections/InvitationSection";
 import debounce from "lodash/debounce";
 
 interface SceneProps {

@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { ThemeContext } from "./context/theme-context";
 import { darkTheme, lightTheme } from "./utils/color";
-import Home from "./pages/Home";
-import IntroTypeScreen from "./sections/IntroTypeScreen";
+import Home from "./screens/Home";
+import IntroTypeScreen from "./screens/IntroTypeScreen";
 import useViewportHeight from "./utils/useViewportHeight";
 import StarryBackground from "./components/StarryBackground";
 

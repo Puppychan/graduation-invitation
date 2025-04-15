@@ -7,12 +7,12 @@ import {
 import { Canvas } from "@react-three/fiber";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
-import Scene from "../components/ScrollManager";
+import Scene from "../components/3d-scenes/ScrollManager";
 import { BottomBar } from "../components/BottomBar";
 import { Vector3 } from "three";
 import { useTheme } from "../context/theme-context";
 import { twMerge } from "tailwind-merge";
-import CanvasLoader from "../components/CanvasLoader";
+import CanvasLoader from "../components/3d-scenes/CanvasLoader";
 import "../utils/preload-assets";
 import TopBar from "../components/TopBar";
 
