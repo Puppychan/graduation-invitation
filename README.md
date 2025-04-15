@@ -1,9 +1,10 @@
 # 🎓 Graduation Invitation
+
 A beautiful, interactive 3D web-based graduation invitation built with React Three Fiber, combining immersive design, animations, and real-time 3D effects to create a memorable digital celebration experience.
 [Live Demo](https://nhung-graduation-invitation.netlify.app/)
 
-
 ## 🌟 Features
+
 - ✨ Fully 3D Invitation Scene using `@react-three/fiber` and `@react-three/drei`
 - Dark mode and light mode themes
 - 📸 Photo gallery & ambient effects
@@ -13,10 +14,12 @@ A beautiful, interactive 3D web-based graduation invitation built with React Thr
 - [🌐 Live Demo](https://nhung-graduation-invitation.netlify.app/)
 
 ## 🚀 Technologies Used
+
 - React + TypeScript + Vite
 - TailwindCSS – For elegant, fast UI styling
 
 ### For 3D Rendering and Graphics
+
 - three - Core 3D library
 - @react-three/fiber – WebGL renderer for React
 - @react-three/drei – Helpers and abstractions
@@ -24,6 +27,7 @@ A beautiful, interactive 3D web-based graduation invitation built with React Thr
 - @react-three/postprocessing – Postprocessing, ambient light and glow effects
 
 ### Supporting Libraries
+
 - maath – For smooth animation transitions
 - lodash - For utility functions
 - react-responsive - For responsive design
@@ -37,7 +41,7 @@ A beautiful, interactive 3D web-based graduation invitation built with React Thr
         🖌️ fonts/ - storing font mappings
         🔖 models - storing 3d model files
         🌌 textures/ - storing textures when rendering 3d models and scenes
-    
+
     📁 src/
         📦 components/
             3d-models/ - storing models generated from 3d glb files
@@ -60,24 +64,28 @@ A beautiful, interactive 3D web-based graduation invitation built with React Thr
 📜 index.html
 
 ## ⚙️ Getting Started
+
 ### 1. Clone the repo
+
 git clone https://github.com/Puppychan/graduation-invitation
 cd graduation-invitation
 
 ### 2. Install dependencies
+
 npm install
 
 ### 3. Start the dev server
+
 npm run dev
 
 ## 🖼 Screenshots
+
 Light Mode | Dark Mode
-<img width="1512" alt="Screenshot 2025-04-13 at 10 15 28" src="https://github.com/user-attachments/assets/2ecbb528-651d-447e-8408-2514531c8d6c" />  | <img width="1506" alt="image" src="https://github.com/user-attachments/assets/da205787-4b57-40d2-8562-e7f978846895" />
+<img width="1512" alt="Screenshot 2025-04-13 at 10 15 28" src="https://github.com/user-attachments/assets/2ecbb528-651d-447e-8408-2514531c8d6c" /> | <img width="1506" alt="image" src="https://github.com/user-attachments/assets/da205787-4b57-40d2-8562-e7f978846895" />
 <img width="1512" alt="image" src="https://github.com/user-attachments/assets/00224beb-62ba-4979-a5ae-a9b05c8cb39e" /> | <img width="1512" alt="image" src="https://github.com/user-attachments/assets/5e46c56c-d184-442e-b8b8-86c0c4527ee0" />
 
-
-			
 ## 🧠 Inspiration
+
 This project was born from a vision to transform the traditional graduation announcement into something extraordinary. Moving beyond simple text messages or static designs, I wanted to create an immersive, interactive experience that would make my invitation truly memorable.
 
 My goal was to transport friends and family into a captivating 3D world where they could explore and interact with the invitation like a game. I imagined a space where loved ones could not only feel the excitement and joy of graduation but also feel honored as significant participants in my journey.
@@ -85,6 +93,7 @@ My goal was to transport friends and family into a captivating 3D world where th
 Having just begun my exploration of 3D rendering, Blender, and WebGL a month ago, this represents only my second venture into 3D creation. It's both a celebration invitation and a milestone in my developing skills. I hope you enjoy experiencing it as much as I enjoyed creating it!
 
 ## 🎨 Design
+
 - All 3D models are taken from [Sketchfab](https://sketchfab.com/)
 - Gradient texture is taken from [uiGradients](https://uigradients.com/)
 - Gummy texture is taken from [MatCaps](https://github.com/emmelleppi/matcaps)
@@ -92,10 +101,22 @@ Having just begun my exploration of 3D rendering, Blender, and WebGL a month ago
 - Text design is inspired by [Sandbox](https://codesandbox.io/p/sandbox/r3f-drei-3d-text-de86ih)
 
 ## 🤝 Contributing
+
 Have ideas or feedback? Feel free to open an issue or submit a PR!
 
 ## 📄 License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
 
+This project uses a dual licensing structure:
 
+- **Source Code**: Licensed under the [MIT License](LICENSE)
+- **Visual Design, Scene Arrangement, and UI/UX Ideas**: Licensed under [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](LICENSE-DESIGN)
 
+### Attribution Requirements
+
+If you use this code or design elements in your project, please include the following attribution:
+
+```
+Based on work by [Tran Mai Nhung] (https://github.com/Puppychan/graduation-invitation)
+```
+
+See [NOTICE.md](NOTICE.md) for asset attributions and third-party licenses.
