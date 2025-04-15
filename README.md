@@ -1,4 +1,4 @@
-# 🎓 Graduation Invitation
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/2c0847df-0711-424d-8e9a-1398a882ad73" /><img width="1512" alt="image" src="https://github.com/user-attachments/assets/13a7fa35-7309-4cb2-ac4e-9fc37977a3ca" /># 🎓 Graduation Invitation
 
 A beautiful, interactive 3D web-based graduation invitation built with React Three Fiber, combining immersive design, animations, and real-time 3D effects to create a memorable digital celebration experience.
 
@@ -41,31 +41,26 @@ A beautiful, interactive 3D web-based graduation invitation built with React Thr
 ## 📂 Folder Structure
 
     📁 public/
-        🖼️ assets/ - storing images
-        🖌️ fonts/ - storing font mappings
-        🔖 models - storing 3d model files
-        🌌 textures/ - storing textures when rendering 3d models and scenes
-
+    ├── 🖼️ assets/      – storing images
+    ├── 🖌️ fonts/       – storing font mappings
+    ├── 🔖 models/      – storing 3D model files
+    └── 🌌 textures/    – storing textures for 3D models and scenes
+    
     📁 src/
-        📦 components/
-            3d-models/ - storing models generated from 3d glb files
-            3d-shapes/ - storing 3d shapes created with react-three-fiber and drei
-            3d-scenes/ - storing components for loading, building structure and controls the 3d scenes
-            ./ - storing other components, which are not 3d related
-    context/
-        ./ - storing context files for managing global states (Theme)
-    screens/
-        ./ - storing screen components, including thank you screen and home screen
-    sections/
-        ./ - storing 3d sections inside Home screen
-    utils/
-        ./ - storing utility functions
-    📜 App.tsx
-    App.css - Main CSS file for importing TailwindCSS
-    index.tsx - Main entry point for the React app
-    main.tsx - Main entry point for the React app
-
-📜 index.html
+    ├── 📦 components/
+    │   ├── 🧱 3d-models/     – models generated from .glb files
+    │   ├── 🌀 3d-shapes/     – 3D shapes created with R3F and drei
+    │   ├── 🌠 3d-scenes/     – components for structure, loading, and controls of scenes
+    │   └── 🧩 ./             – non-3D related shared components
+    ├── 🧠 context/          – context files for global state (e.g., theme)
+    ├── 🖥️ screens/          – screen components (e.g., Home, Thank You)
+    ├── 🎯 sections/         – 3D sections used in Home screen
+    └── 🛠️ utils/            – utility/helper functions
+    
+    📜 App.tsx              – Main React component
+    🎨 App.css              – Main CSS file (e.g., Tailwind import)
+    🧷 index.tsx            – React DOM entry point
+    🔧 main.tsx             – App bootstrap/logic entry point
 
 ## ⚙️ Getting Started
 
@@ -91,8 +86,26 @@ cd graduation-invitation
     <td align="center"><strong>🌚 Dark Mode</strong></td>
     <td align="center"><strong>🌝 Light Mode</strong></td>
   </tr>
+    <tr>
+    <td align="center">Thank You Screen</td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/d6b4b350-bc4e-4a59-bf0a-db1bbc16da0a" />
+    </td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/90127e48-34ed-4846-bad8-e3106c230154" />
+    </td>
+    </tr>
+    <tr>
+    <td align="center">Instruction</td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/163f66b0-fd8d-4cbb-8846-3d700a4fe94f" />
+    </td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/82c5471c-76a2-4d9a-8d8b-1f59fd9c58cf" />
+    </td>
+    </tr>
   <tr>
-    <td align="center">Welcome</td>
+    <td align="center">3D - Welcome</td>
     <td align="center">
       <img width="1512" alt="Screenshot 2025-04-13 at 10 15 28" src="https://github.com/user-attachments/assets/2ecbb528-651d-447e-8408-2514531c8d6c" />
     </td>
@@ -100,8 +113,26 @@ cd graduation-invitation
       <img width="1506" alt="image" src="https://github.com/user-attachments/assets/da205787-4b57-40d2-8562-e7f978846895" />
     </td>
   </tr>
+      <tr>
+    <td align="center">3D - Subtitle</td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/7ab37d5c-2038-494d-99a7-4773017332f6" />
+    </td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/9f28fb62-afc8-4867-9898-6daa55fca3a4" />
+    </td>
+  </tr>
+     <tr>
+    <td align="center">3D - University Info</td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/aed82169-ad8a-42ad-bc8e-e2e52955e374" />
+    </td>
+    <td align="center">
+      <img width="1512" alt="image" src="https://github.com/user-attachments/assets/63937ebc-2a98-43cd-aa3b-daadb57f1946" />
+    </td>
+  </tr>
   <tr>
-    <td align="center">Invitation Info</td>
+    <td align="center">3D - Invitation Info</td>
     <td align="center">
       <img width="1512" alt="image" src="https://github.com/user-attachments/assets/00224beb-62ba-4979-a5ae-a9b05c8cb39e" />
     </td>
